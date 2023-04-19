@@ -9,6 +9,8 @@
 </head>
 
 <body>
+  <button onclick="getAuthUrl()">authorize and load</button>
+  <br />
   <script src="https://apis.google.com/js/api.js"></script>
   <script>
     const baseUrl = "https://breezy-regions-mix-157-40-100-85.loca.lt"
@@ -20,13 +22,12 @@
         if (res.status === 200) return res.json();
         throw new Error(res.statusText)
       }).then(data => {
-        document.querySelector("a").href = data.data;
+        const authBtn = document.createElement("a");
+        authBtn.href = data.data;
+        document.querySelector("br").after(authBtn);
       }).catch(console.error)
     }
   </script>
-  <button onclick="getAuthUrl()">authorize and load</button>
-  <br />
-  <a href="">Signin</a>
 </body>
 
 </html>
