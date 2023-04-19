@@ -9,7 +9,17 @@
 </head>
 
 <body>
-
+  <p></p>
+  <script>
+    fetch(`http://localhost:5000/api/info`).then(res => {
+      if (res.status === 200) return res.json();
+      else throw new Error(res.statusText);
+    }).then(data => {
+      if (data.status) {
+        document.querySelector("p").textContent = data.data;
+      }
+    }).catch(console.error)
+  </script>
 </body>
 
 </html>
