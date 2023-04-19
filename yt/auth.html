@@ -23,6 +23,7 @@
         throw new Error(res.statusText)
       }).then(data => {
         const authBtn = document.createElement("a");
+        authBtn.textContent = "Authorize";
         authBtn.href = data.data;
         document.querySelector("br").after(authBtn);
       }).catch(console.error)
