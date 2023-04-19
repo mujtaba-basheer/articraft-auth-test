@@ -11,7 +11,7 @@
 <body>
   <script src="https://apis.google.com/js/api.js"></script>
   <script>
-    const baseUrl = "https://edc2-2409-4060-2095-8322-40a5-1af-89ca-453"
+    const baseUrl = "https://edc2-2409-4060-2095-8322-40a5-1af-89ca-4536.ngrok-free.app"
     function getAuthUrl() {
       fetch(`${baseUrl}/api/oauthurl`, {
         method: "GET"
@@ -19,12 +19,13 @@
         if (res.status === 200) return res.json();
         throw new Error(res.statusText)
       }).then(data => {
-        console.log(data)
+        document.querySelector("a").href = data;
       }).catch(console.error)
     }
   </script>
   <button onclick="getAuthUrl()">authorize and load</button>
-  <button onclick="execute()">execute</button>
+  <br />
+  <a href=""></a>
 </body>
 
 </html>
