@@ -40,9 +40,16 @@
         },
           function (err) { console.error("Execute error", err); });
     }
-    gapi.load("client:auth2", function () {
-      gapi.auth2.init({ client_id: "388803671415-r090l0un73m311gf2fhb2ada0ge11ne4.apps.googleusercontent.com" });
-    });
+    // gapi.load("client:auth2", function () {
+    //   gapi.auth2.init({ client_id: "388803671415-r090l0un73m311gf2fhb2ada0ge11ne4.apps.googleusercontent.com", plugin_name: "chat" });
+    // });
+    window.gapi.load('client:auth2', () => {
+      window.gapi.client.init({
+        clientId: '388803671415-r090l0un73m311gf2fhb2ada0ge11ne4.apps.googleusercontent.com',
+        plugin_name: "chat"
+      });
+      gapi.auth2.init({ client_id: "388803671415-r090l0un73m311gf2fhb2ada0ge11ne4.apps.googleusercontent.com", plugin_name: "chat" });
+    })
   </script>
   <button onclick="authenticate().then(loadClient)">authorize and load</button>
   <button onclick="execute()">execute</button>
