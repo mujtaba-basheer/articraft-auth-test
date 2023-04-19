@@ -20,7 +20,7 @@
         if (res.status === 200) return res.json();
         throw new Error(res.statusText)
       }).then(data => {
-        document.querySelector("a").href = data;
+        document.querySelector("a").href = data.data;
       }).catch(console.error)
     }
   </script>
