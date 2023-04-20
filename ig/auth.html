@@ -25,12 +25,6 @@
       js.src = "https://connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-
-    function checkLoginState() {
-      FB.getLoginStatus(function (response) {
-        statusChangeCallback(response);
-      });
-    }
   </script>
   <title>Instagram</title>
 </head>
@@ -40,6 +34,14 @@
     Login
   </fb:login-button>
   <script>
+    function statusChangeCallback(response) {
+      console.log("response:", response);
+    }
+    function checkLoginState() {
+      FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
+      });
+    }
     window.addEventListener("load", () => {
       FB.getLoginStatus(function (response) {
         statusChangeCallback(response);
