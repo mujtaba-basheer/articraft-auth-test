@@ -11,7 +11,7 @@
         appId: '1424254058419061',
         cookie: true,
         xfbml: true,
-        version: '{api-version}'
+        version: 'v16.0'
       });
 
       FB.AppEvents.logPageView();
@@ -25,19 +25,21 @@
       js.src = "https://connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
+    function checkLoginState() {
+      FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
+      });
+    }
   </script>
   <title>Instagram</title>
 </head>
 
 <body>
   <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    Login
   </fb:login-button>
   <script>
-    function checkLoginState() {
-      FB.getLoginStatus(function (response) {
-        statusChangeCallback(response);
-      });
-    }
     window.addEventListener("load", () => {
       FB.getLoginStatus(function (response) {
         statusChangeCallback(response);
