@@ -16,7 +16,7 @@
     // const baseUrl = "https://breezy-regions-mix-157-40-100-85.loca.lt"
     const baseUrl = "http://localhost:5000"
     function getAuthUrl() {
-      fetch(`${baseUrl}/api/oauthurl`, {
+      fetch(`${baseUrl}/api/yt/oauthurl`, {
         method: "GET"
       }).then(res => {
         if (res.status === 200) return res.json();

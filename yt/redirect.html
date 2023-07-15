@@ -13,7 +13,7 @@
     const sp = new URLSearchParams(window.location.search);
     const code = sp.get("code");
     if (code) {
-      fetch(`http://localhost:5000/api/google-callback?code=${code}`).then(res => {
+      fetch(`http://localhost:5000/api/yt/google-callback?code=${code}`).then(res => {
         if (res.status === 200) return res.json();
         else throw new Error(res.statusText);
       }).then(data => {
