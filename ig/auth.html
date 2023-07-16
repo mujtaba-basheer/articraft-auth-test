@@ -37,8 +37,8 @@
   </fb:login-button> -->
   <a href="#">Connect your Instagram account</a>
   <script>
-    // const baseUrl = "https://breezy-regions-mix-157-40-100-85.loca.lt"
-    const baseUrl = "http://localhost:5000";
+    const baseUrl = "https://api.articraft.io"
+    // const baseUrl = "http://localhost:5000";
     fetch(`${baseUrl}/api/ig/oauthurl`)
       .then(res => res.json())
       .then(({ data }) => {
